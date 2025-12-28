@@ -1908,3 +1908,107 @@ body {
   width: 22px;
   height: 22px;
 }
+
+
+
+/* =========================================
+   ESTILOS SECCIÓN RESERVAS (NUEVO)
+   ========================================= */
+
+#reservas {
+  padding-top: 80px;
+  padding-bottom: 60px;
+  background-color: #fafafa; /* Un fondo gris muy suave para diferenciarlo */
+}
+
+.reservation-form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.05);
+}
+
+.reservation-form label {
+  color: #ee626b; /* Color naranja/rosa de tu marca */
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+  font-size: 15px;
+}
+
+.reservation-form input,
+.reservation-form select {
+  width: 100%;
+  height: 46px;
+  border-radius: 23px;
+  border: 1px solid #eee;
+  padding: 0px 20px;
+  margin-bottom: 25px;
+  outline: none;
+  font-size: 14px;
+  color: #4a4a4a;
+  background-color: #f9f9f9;
+  transition: all 0.3s;
+}
+
+.reservation-form input:focus,
+.reservation-form select:focus {
+  border-color: #ee626b;
+  background-color: #fff;
+}
+
+.reservation-form button {
+  background-color: #ee626b;
+  border: none;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all .3s;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.reservation-form button:hover {
+  background-color: #d1545c; /* Un poco más oscuro al pasar el mouse */
+}
+
+/* =========================================
+   ESTILOS BOTONES DE CONSULTA
+   ========================================= */
+
+/* Hace que el enlace ocupe todo el espacio y quite subrayados */
+.consultation-link {
+  display: block;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* Estilo base de la tarjeta (item) */
+.consultation-link .item {
+  background-color: #fff; /* Fondo blanco */
+  padding: 30px;
+  border-radius: 20px;
+  transition: all 0.3s ease; /* Suaviza la animación */
+  cursor: pointer;
+  border: 1px solid transparent; /* Borde invisible por defecto */
+}
+
+/* Efecto al pasar el mouse por encima */
+.consultation-link:hover .item {
+  transform: translateY(-5px); /* Se eleva un poco */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  border-color: #ee626b; /* Borde color naranja/rosa marca */
+}
+
+/* Ajuste de imágenes para que se vean bien */
+.consultation-link .item img {
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+
+.consultation-link:hover .item img {
+  transform: scale(1.1); /* La imagen crece un poquito */
+}
