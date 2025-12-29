@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
   <head>
 
@@ -458,7 +458,7 @@
           <div id="map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28780.994368087973!2d-54.58877577551788!3d-25.617397809100325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f6923af74e96dd%3A0xb4b8eeda942aae07!2sPuerto%20Iguaz%C3%BA%2C%20Misiones!5e0!3m2!1ses-419!2sar!4v1757191188580!5m2!1ses-419!2sar"  width="100%" height="500px" frameborder="0" style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);" allowfullscreen=""></iframe>
           </div>
-          <div class="section" id="reservas">
+          <div id="reservas">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -533,17 +533,18 @@
   </div>
 
   <div class="col-lg-6">
-    <a href="mailto:ejemplo@gmail.com?subject=Consulta%20sobre%20Viaje&body=Hola,%20quisiera%20hacer%20una%20consulta..." 
-       class="consultation-link">
-      <div class="item email">
-        <img src="assets/images/email-icon.png" alt="Email Icon" style="max-width: 52px;">
-        <h6>
-          Consultas Detalladas<br>
-          <span>Enviar Email</span>
-        </h6>
-      </div>
-    </a>
-  </div>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ejemplo@gmail.com&su=Consulta%20sobre%20Viaje&body=Hola,%20quisiera%20hacer%20una%20consulta..." 
+     target="_blank"
+     class="consultation-link">
+    <div class="item email">
+      <img src="assets/images/email-icon.png" alt="Email Icon" style="max-width: 52px;">
+      <h6>
+        Consultas Detalladas<br>
+        <span>Enviar vía Gmail</span>
+      </h6>
+    </div>
+  </a>
+</div>
 
 </div>
 
@@ -551,56 +552,19 @@
   <footer>
     <div class="container">
       <div class="col-lg-8">
-        <p>Copyright © 2025 Taxis <Iguazu class="Inc"></Iguazu>, Ltd. All rights reserved. 
-        
+        <p>Copyright © 2025 Taxis Iguazu, Ltd. All rights reserved.
         Design: <a rel="nofollow" target="_blank">Aguilar Tomas</a></p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
-  <script src="assets/js/custom.js"></script>
-
-  <!-- Scroll suave para el botón de contacto -->
-  <script>
-    $(document).ready(function(){
-      $('a[href="#contacto"]').on('click', function(event) {
-        var target = $('#contacto');
-        if(target.length){
-          event.preventDefault();
-          $('html, body').animate({
-            scrollTop: target.offset().top
-          }, 700); // Duración de la animación en ms
-        }
-      });
-    });
-  </script>
-<script>
-  document.getElementById('reservation-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Captura de datos
-    const fecha = document.getElementById('res-date').value;
-    const hora = document.getElementById('res-time').value;
-    const destino = document.getElementById('res-destin').value;
-    const nroTelefono = "5493764618983"; // Tu número actual en el código
-
-    // Construcción del mensaje
-    const mensaje = `Hola Taxis Iguazú! Quisiera realizar una reserva:%0A` +
-                    `- *Fecha:* ${fecha}%0A` +
-                    `- *Hora:* ${hora}%0A` +
-                    `- *Destino:* ${destino}%0A` +
-                    `Por favor, confírmenme el chofer asignado y métodos de pago.`;
-
-    // Redirección a WhatsApp
-    window.open(`https://api.whatsapp.com/send?phone=${nroTelefono}&text=${mensaje}`, '_blank');
-  });
+  <script src="assets/js/custom.js"></script> </body>
 </script>
   </body>
 </html>

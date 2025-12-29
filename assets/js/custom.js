@@ -4,11 +4,8 @@
 
 	// Page loading animation
 	$(window).on('load', function() {
-
 		$('#js-preloader').addClass('loaded');
-
 	});
-
 
 	$(window).scroll(function() {
 	  var scroll = $(window).scrollTop();
@@ -73,7 +70,6 @@
 		}
 	}
 
-
 	// Menu Dropdown Toggle
 	if($('.menu-trigger').length){
 		$(".menu-trigger").on('click', function() {	
@@ -82,30 +78,50 @@
 		});
 	}
 
+    // Scroll suave unificado y manejo de reservas
+    $(document).ready(function() {
+        // Scroll suave para todos los enlaces internos
+        $("a[href^='#']").on("click", function(e) {
+            var href = $(this).attr('href');
+            if (href.length > 1 && href.charAt(0) === '#') {
+                var target = $(href);
+                if(target.length) {
+                    e.preventDefault();
+                    var width = $(window).width();
+                    if(width < 991) {
+                        $('.menu-trigger').removeClass('active');
+                        $('.header-area .nav').slideUp(200);
+                    }
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 80
+                    }, 1200, 'swing');
+                }
+            }
+        });
 
-// Scroll suave unificado para todos los enlaces internos (incluyendo contacto)
-$(document).ready(function() {
-  $("a[href^='#']").on("click", function(e) {
-	var href = $(this).attr('href');
-	if (href.length > 1 && href.charAt(0) === '#') {
-	  var target = $(href);
-	  if(target.length) {
-		e.preventDefault();
-		var width = $(window).width();
-		if(width < 991) {
-		  $('.menu-trigger').removeClass('active');
-		  $('.header-area .nav').slideUp(200);
-		}
-		$('html, body').animate({
-		  scrollTop: target.offset().top - 80
-		}, 1200, 'swing');
-	  }
-	}
-  });
-});
+        // Manejo del Formulario de Reservas
+        const reservationForm = document.getElementById('reservation-form');
+        if (reservationForm) {
+            reservationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const fecha = document.getElementById('res-date').value;
+                const hora = document.getElementById('res-time').value;
+                const destino = document.getElementById('res-destin').value;
+                const nroTelefono = "5493764618983"; 
 
+                const mensaje = `Hola Taxis Iguazú! Quisiera realizar una reserva:%0A` +
+                                `- *Fecha:* ${fecha}%0A` +
+                                `- *Hora:* ${hora}%0A` +
+                                `- *Destino:* ${destino}%0A` +
+                                `Por favor, confírmenme el chofer asignado y métodos de pago.`;
 
-	// Page loading animation
+                window.open(`https://api.whatsapp.com/send?phone=${nroTelefono}&text=${mensaje}`, '_blank');
+            });
+        }
+    });
+
+	// Page loading animation final
 	$(window).on('load', function() {
 		if($('.cover').length){
 			$('.cover').parallax({
@@ -122,9 +138,5 @@ $(document).ready(function() {
 			}, 300);
 		});
 	});
-	
-
 
 })(window.jQuery);
-
-// ...eliminado: scroll-contacto duplicado, ahora todo es manejado por el scroll suave unificado...
