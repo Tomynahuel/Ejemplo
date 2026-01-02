@@ -1333,3 +1333,64 @@ Custom Overrides (Ajustes Específicos)
   width: 22px;
   height: 22px;
 }
+
+/* --- Estilos para el Tooltip del Botón --- */
+
+/* Aseguramos que el botón sea la referencia para posicionar el mensaje */
+#form-submit {
+  position: relative;
+}
+
+/* Crear el mensaje oculto */
+#form-submit::after {
+  content: attr(data-tooltip); /* Toma el texto del HTML */
+  position: absolute;
+  bottom: 120%; /* Lo ubica arriba del botón */
+  left: 50%;
+  transform: translateX(-50%); /* Lo centra perfectamente */
+  
+  /* Diseño del mensaje */
+  background-color: #333; /* Fondo oscuro */
+  color: #fff;            /* Texto blanco */
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;    /* Evita que el texto se rompa en varias líneas */
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  pointer-events: none;   /* Para que no interfiera con el clic */
+  
+  /* Animación */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+/* Crear la flechita hacia abajo (opcional, para estética) */
+#form-submit::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+/* Mostrar el mensaje al pasar el mouse */
+#form-submit:hover::after {
+  opacity: 1;
+  visibility: visible;
+  bottom: 130%; /* Pequeño movimiento hacia arriba al aparecer */
+}
+
+#form-submit:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
