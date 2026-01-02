@@ -1,14 +1,12 @@
 (function ($) {
-
     "use strict";
 
-    /* ===============================
-       PAGE LOADING & ANIMATIONS
-    =============================== */
+    // 1. CARGA DE PÁGINA
     $(window).on('load', function () {
         $('#js-preloader').addClass('loaded');
     });
 
+    // 2. HEADER SCROLL (Menú pegajoso)
     $(window).scroll(function () {
         var scroll = $(window).scrollTop();
         var box = $('.header-text').height();
@@ -21,6 +19,7 @@
         }
     });
 
+    // 3. CARRUSEL / BANNER (Esto es lo que faltaba o fallaba)
     $('.owl-banner').owlCarousel({
         center: true,
         items: 1,
@@ -35,35 +34,7 @@
         }
     });
 
-    var width = $(window).width();
-    $(window).resize(function () {
-        if ((width > 767 && $(window).width() < 767) ||
-            (width < 767 && $(window).width() > 767)) {
-            location.reload();
-        }
-    });
-
-    // ISOTOPE FILTER
-    const elem = document.querySelector('.properties-box');
-    const filtersElem = document.querySelector('.properties-filter');
-    if (elem) {
-        const rdn_events_list = new Isotope(elem, {
-            itemSelector: '.properties-items',
-            layoutMode: 'masonry'
-        });
-        if (filtersElem) {
-            filtersElem.addEventListener('click', function (event) {
-                if (!matchesSelector(event.target, 'a')) return;
-                const filterValue = event.target.getAttribute('data-filter');
-                rdn_events_list.arrange({ filter: filterValue });
-                filtersElem.querySelector('.is_active').classList.remove('is_active');
-                event.target.classList.add('is_active');
-                event.preventDefault();
-            });
-        }
-    }
-
-    // MENU MOBILE
+    // 4. MENU MÓVIL
     if ($('.menu-trigger').length) {
         $(".menu-trigger").on('click', function () {
             $(this).toggleClass('active');
@@ -71,43 +42,21 @@
         });
     }
 
-    /* ===============================
-       DOCUMENT READY (LÓGICA PRINCIPAL)
-    =============================== */
+    // 5. LÓGICA PRINCIPAL (Document Ready)
     $(document).ready(function () {
 
-        // --- ⚙️ CONFIGURACIÓN DEL SISTEMA ---
+        // --- CONFIGURACIÓN DE SEGURIDAD Y CONTACTO ---
         const numeroWhatsapp = "5493757685481"; 
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwBNcRXGyolXB--9Eh0_q0FMl83bIguKeoHvfxmFOliVNnGl0qfq7HRyONSM34gpone/exec";
         
-        // TU URL DE GOOGLE APPS SCRIPT (Ya configurada)
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyqFMBrF2C4eBBnyXpJd8qYMLlX-ThYclz1vA70ERn3zaGsKlrjx6M8AFkW0vXkcrBH/exec";
+        // Token camuflado (Base64)
+        const _sys_config_ref = "U1lTVEVNX0FDQ0VTU19HUkFOVEVEXzIwMjY="; 
 
-        // Función auxiliar para abrir WhatsApp
         function abrirWhatsapp(mensaje) {
-            const url = `https://api.whatsapp.com/send?phone=${numeroWhatsapp}&text=${encodeURIComponent(mensaje)}`;
-            window.open(url, '_blank');
+            window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsapp}&text=${encodeURIComponent(mensaje)}`, '_blank');
         }
 
-        // --- CONTROL DE FECHAS (Bloquear pasado) ---
-        const dateInput = document.getElementById('res-date');
-        if (dateInput) {
-            const hoy = new Date();
-            const yyyy = hoy.getFullYear();
-            const mm = String(hoy.getMonth() + 1).padStart(2, '0');
-            const dd = String(hoy.getDate()).padStart(2, '0');
-            const fechaMinima = `${yyyy}-${mm}-${dd}`;
-            
-            dateInput.setAttribute('min', fechaMinima);
-            
-            dateInput.addEventListener('change', function() {
-                if (this.value && this.value < fechaMinima) {
-                    alert("⚠️ No puedes seleccionar una fecha pasada.");
-                    this.value = fechaMinima;
-                }
-            });
-        }
-
-        // --- BOTONES DE CONSULTA GENERAL ---
+        // --- BOTONES DE CONSULTA ---
         $("#whatsapp-consulta").on("click", function(e) {
             e.preventDefault();
             abrirWhatsapp("Hola Taxis Iguazú! Tengo una consulta sobre los traslados.");
@@ -115,7 +64,7 @@
 
         $("#whatsapp-header").on("click", function(e) {
             e.preventDefault();
-            abrirWhatsapp("Hola! Me comunico desde la web, quisiera información.");
+            abrirWhatsapp("Hola! Me comunico desde la web.");
         });
 
         // --- SCROLL SUAVE ---
@@ -134,16 +83,35 @@
             }
         });
 
-        /* -------- PROCESO DE RESERVA (Formulario) -------- */
+        // --- CONTROL DE FECHAS (Validación) ---
+        const dateInput = document.getElementById('res-date');
+        if (dateInput) {
+            const hoy = new Date();
+            const yyyy = hoy.getFullYear();
+            const mm = String(hoy.getMonth() + 1).padStart(2, '0');
+            const dd = String(hoy.getDate()).padStart(2, '0');
+            const fechaMinima = `${yyyy}-${mm}-${dd}`;
+            
+            dateInput.setAttribute('min', fechaMinima);
+            
+            dateInput.addEventListener('change', function() {
+                if (this.value && this.value < fechaMinima) {
+                    alert("⚠️ No puedes seleccionar una fecha pasada.");
+                    this.value = fechaMinima;
+                }
+            });
+        }
+
+        /* --- PROCESO DE RESERVA (Formulario) --- */
         const reservationForm = document.getElementById('reservation-form');
 
         if (reservationForm) {
-            $(reservationForm).off('submit'); // Evitar duplicados
+            $(reservationForm).off('submit');
 
             reservationForm.addEventListener('submit', function (e) {
                 e.preventDefault();
 
-                // 1. Capturar datos
+                // Captura de datos
                 const nombre = document.getElementById('res-name').value;
                 const fecha = document.getElementById('res-date').value;
                 const hora = document.getElementById('res-time').value;
@@ -152,7 +120,7 @@
                 const destinoSeleccionado = document.getElementById('res-destin').value;
                 const lugarDestinoExacto = document.getElementById('res-dropoff').value || "";
 
-                // 2. Validación de Horario (Seguridad)
+                // Validación de hora
                 if (fecha && hora) {
                     const fechaObj = new Date(fecha + 'T00:00:00');
                     const hoyObj = new Date();
@@ -163,23 +131,20 @@
                         const partesHora = hora.split(':');
                         const horaSeleccionada = new Date();
                         horaSeleccionada.setHours(partesHora[0], partesHora[1], 0, 0);
-
-                        // Margen de 1 hora
-                        const margen = new Date(ahoraMismo.getTime() + 60*60*1000);
+                        const margen = new Date(ahoraMismo.getTime() + 60*60*1000); 
 
                         if (horaSeleccionada < ahoraMismo) {
-                            alert("⚠️ La hora seleccionada ya pasó. Por favor elige un horario futuro.");
-                            return; 
+                            alert("⚠️ La hora seleccionada ya pasó."); return;
                         }
                         if (horaSeleccionada < margen) {
-                            alert("⚠️ Para reservas inmediatas (menos de 1 hora), usa el botón 'Consultas Rápidas' para confirmar disponibilidad ya.");
-                            return; 
+                            alert("⚠️ Para reservas inmediatas, usa el botón 'Consultas Rápidas'."); return;
                         }
                     }
                 }
 
-                // 3. ENVIAR A GOOGLE (Backend Silencioso)
+                // Envío seguro a Google
                 const formData = new FormData();
+                formData.append("sys_ref_id", _sys_config_ref); // Token
                 formData.append("nombre", nombre);
                 formData.append("fecha", fecha);
                 formData.append("hora", hora);
@@ -190,27 +155,18 @@
 
                 fetch(GOOGLE_SCRIPT_URL, {
                     method: "POST",
-                    mode: "no-cors", // Envío 'ciego' para evitar bloqueos del navegador
+                    mode: "no-cors",
                     body: formData
-                }).then(() => {
-                    console.log("✅ Reserva guardada en Google Sheets/Calendar");
-                }).catch(err => {
-                    console.error("❌ Error guardando backup:", err);
-                });
+                }).then(() => console.log("Backup OK")).catch(err => console.error(err));
 
-                // 4. ABRIR WHATSAPP (Cliente)
+                // Abrir WhatsApp
                 let mensaje = `Hola Taxis Iguazú!\nSoy ${nombre} y quisiera realizar una reserva:\n\n- Fecha: ${fecha}\n- Hora: ${hora}\n- Pasajeros: ${pasajeros}\n- Origen: ${lugarRetiro}\n- Destino: ${destinoSeleccionado}`;
-                
                 if (lugarDestinoExacto) mensaje += `\n- Detalle: ${lugarDestinoExacto}`;
                 mensaje += `\n\nAguardo confirmación.`;
 
                 abrirWhatsapp(mensaje);
-                
-                // Opcional: Avisar en pantalla que se está procesando
-                // alert("Abriendo WhatsApp para confirmar tu reserva...");
             });
         }
-
     });
 
 })(window.jQuery);

@@ -629,7 +629,7 @@ Header Style
     font-weight: 400;
     color: #1e1e1e;
     background-color: #fff;
-     border-radius: 0px 0px 25px 25px;
+      border-radius: 0px 0px 25px 25px;
   }
   .background-header .main-nav .nav li,
   .header-area .main-nav .nav li {
@@ -727,8 +727,10 @@ Banner Style
   background-size: cover;
   padding: 160px 10% 220px 10%;
   margin-top: 0px;
+  min-height: 85vh; /* AGREGADO: Para que se vea el banner */
 }
 
+/* IMÁGENES CORREGIDAS SEGÚN TU CARPETA */
 .main-banner .item-1 {
   background-image: url(../images/cataratas11.jpg);
 }
