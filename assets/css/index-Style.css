@@ -1,8 +1,5 @@
 /*
-
-*/
-
-/* ---------------------------------------------
+---------------------------------------------
 Table of contents
 ------------------------------------------------
 01. font & reset css
@@ -13,17 +10,17 @@ Table of contents
 06. features
 07. testimonials
 08. contact
-09. footer
-
+09. reservation form (NUEVO)
+10. footer
 --------------------------------------------- */
-/* 
----------------------------------------------
+
+/* ---------------------------------------------
 font & reset css
 --------------------------------------------- 
 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
-/* 
----------------------------------------------
+
+/* ---------------------------------------------
 reset
 --------------------------------------------- 
 */
@@ -105,8 +102,7 @@ img {
   overflow: hidden;
 }
 
-/* 
----------------------------------------------
+/* ---------------------------------------------
 Global Styles
 --------------------------------------------- 
 */
@@ -204,8 +200,7 @@ body {
   color: #fff;
 }
 
-/* 
----------------------------------------------
+/* ---------------------------------------------
 Pre-loader Style
 --------------------------------------------- 
 */
@@ -304,10 +299,7 @@ Pre-loader Style
   border-radius: 50%;
 }
 
-
-
-/* 
----------------------------------------------
+/* ---------------------------------------------
 Header Style
 --------------------------------------------- 
 */
@@ -407,12 +399,12 @@ Header Style
 
 .header-area .main-nav .logo h1 {
   line-height: 100px;
-  font-size: 24px;        /* Cambia de 28px a 24px */
+  font-size: 24px;
   text-transform: uppercase;
   color: #1e1e1e;
   font-weight: 700;
-  letter-spacing: 1px;    /* Cambia de 2px a 1px */
-  white-space: nowrap;    /* Evita el salto de línea */
+  letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .background-header .main-nav .logo h1 {
@@ -497,7 +489,6 @@ Header Style
 .header-area .main-nav .nav li a.active {
   color: #f35525;
 }
-
 
 .background-header .main-nav .nav li a.active {
   color: #f35525;
@@ -619,7 +610,6 @@ Header Style
     padding-left: 5px;
     padding-right: 5px;
   }
-
 }
 
 @media (max-width: 767px) {
@@ -724,11 +714,9 @@ Header Style
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
-  
 }
 
-/* 
----------------------------------------------
+/* ---------------------------------------------
 Banner Style
 --------------------------------------------- 
 */
@@ -835,10 +823,7 @@ Banner Style
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-
-
-/* 
----------------------------------------------
+/* ---------------------------------------------
 Featured Style
 --------------------------------------------- 
 */
@@ -846,8 +831,6 @@ Featured Style
 .featured .left-image {
   position: relative;
 }
-
-
 
 .featured .left-image img {
   padding-left: 55px;
@@ -874,10 +857,6 @@ Featured Style
 
 .featured .section-heading h2 {
   width: 100%;
-}
-
-/* Evita salto de línea en el título de la sección de información */
-.featured .section-heading h2 {
   white-space: nowrap;
 }
 
@@ -956,202 +935,7 @@ Featured Style
 }
 
 
-/* 
----------------------------------------------
-Video Style
---------------------------------------------- 
-*/
-
-.video {
-  background-image: url(../images/video-bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  padding: 100px 0px 250px 0px;
-  position: relative;
-}
-
-.video-content {
-  margin-top: -240px;
-}
-
-.video .section-heading h2 {
-  color: #fff;
-}
-
-.video-content .video-frame {
-  position: relative;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-}
-
-.video-content .video-frame img {
-  border-radius: 10px;
-}
-
-.video-content .video-frame a {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-26px, -26px);
-  width: 52px;
-  height: 52px;
-  background-color: #fff;
-  border-radius: 50%;
-  display: inline-block;
-  text-align: center;
-  line-height: 52px;
-  color: #f35525;
-  outline: 15px solid rgba(254, 85, 37, 0.5);
-  font-size: 18px;
-}
-
-/* 
----------------------------------------------
-Fun Facts Style
---------------------------------------------- 
-*/
-
-.fun-facts {
-  text-align: center;
-  margin-top: 125px;
-}
-
-.fun-facts .counter {
-  background-color: #ffeee9;
-  position: relative;
-  border-radius: 10px;
-  width: 270px;
-  padding: 20px 0px;
-  display: inline-block;
-}
-
-.fun-facts .counter h2,
-.fun-facts .counter p {
-  display: inline-flex;
-  vertical-align: middle;
-}
-
-.fun-facts .counter p {
-  text-align: left;
-  font-size: 16px;
-  color: #1e1e1e;
-  font-weight: 600;
-  line-height: 28px;
-}
-
-.fun-facts .counter h2 {
-  margin-right: 25px;
-  font-size: 40px;
-  color: #f35525;
-}
-
-.fun-facts .counter:after {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-color: #f35525;
-  border-radius: 50%;
-  content: '';
-  right: -25px;
-  top: -25px;
-}
-
-
-/* 
----------------------------------------------
-Best Deal Style
---------------------------------------------- 
-*/
-
-.best-deal {
-  background-color: #fafafa;
-  padding: 100px 0px;
-}
-
-.best-deal .tab-content img {
-  padding: 0px 45px;
-}
-
-.best-deal .tabs-content .nav-link {
-  font-size: 16px;
-  font-weight: 500;
-  background-color: #1e1e1e !important;
-  border-radius: 5px;
-  height: 50px;
-  line-height: 50px;
-  display: inline-block;
-  padding: 0px 25px;
-  color: #fff;
-}
-
-.best-deal .tabs-content .nav-tabs .nav-link.active {
-  background-color: #f35525 !important;
-  color: #fff;
-}
-
-.best-deal .tabs-content ul.nav-tabs {
-  border-bottom: none !important;
-  margin-bottom: 80px;
-  align-items: end;
-  justify-content: end;
-  margin-top: -130px;
-}
-
-.best-deal .tabs-content ul.nav-tabs li {
-  padding-right: 0px;
-  border-right: none;
-  margin-left: 20px;
-}
-
-.best-deal .info-table {
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
-  padding: 35px 30px;
-}
-
-.best-deal .info-table ul li {
-  display: block;
-  margin-bottom: 24px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-  font-size: 15px;
-  color: #aaa;
-  font-weight: 400;
-}
-
-.best-deal .info-table ul li:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-.best-deal .info-table ul li span {
-  font-size: 20px;
-  color: #1e1e1e;
-  font-weight: 700;
-  float: right;
-}
-
-.best-deal .tabs-content {
-  padding: 0px;
-  background-color: transparent;
-}
-
-.best-deal .tabs-content h4 {
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 30px;
-}
-
-.best-deal .icon-button {
-  margin-top: 30px;
-}
-
-
-/* 
----------------------------------------------
+/* ---------------------------------------------
 Properties Style
 --------------------------------------------- 
 */
@@ -1166,7 +950,7 @@ Properties Style
 .properties .item img {
   border-radius: 10px;
   width: 100%;
-  height: 300px; /* Ajusta este valor si quieres más alto/bajo */
+  height: 300px;
   object-fit: cover;
   object-position: center;
   display: block;
@@ -1222,8 +1006,7 @@ Properties Style
 }
 
 
-/* 
----------------------------------------------
+/* ---------------------------------------------
 Contact Style
 --------------------------------------------- 
 */
@@ -1285,62 +1068,76 @@ Contact Style
   font-weight: 400;
 }
 
-.contact-content #contact-form {
-  margin-left: 30px;
+/* ---------------------------------------------
+Reservation Form Style (NUEVO)
+--------------------------------------------- 
+*/
+
+/* Contenedor del formulario */
+.reservation-form {
   border-radius: 10px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
   padding: 35px 30px;
   background-color: #fff;
 }
 
-.contact-content #contact-form label {
+/* Etiquetas */
+.reservation-form label {
   font-size: 15px;
   color: #3a3a3a;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  display: block;
+  font-weight: 600;
 }
 
-.contact-content #contact-form input {
+/* Campos de entrada (texto, fecha, hora, número, selección) */
+.reservation-form input[type="text"],
+.reservation-form input[type="date"],
+.reservation-form input[type="time"],
+.reservation-form input[type="number"], 
+.reservation-form select {
   width: 100%;
-  height: 44px;
-  border-radius: 22px;
+  height: 46px;
+  border-radius: 23px;
   background-color: #f6f6f6;
   border: none;
   margin-bottom: 30px;
   font-size: 14px;
   padding: 0px 15px;
+  outline: none;
+  color: #1e1e1e;
+  text-transform: none; /* Asegura que el texto no se fuerce a mayúsculas */
 }
 
-.contact-content #contact-form textarea {
-  width: 100%;
-  height: 150px;
-  max-height: 180px;
-  border-radius: 22px;
-  background-color: #f6f6f6;
-  border: none;
-  margin-bottom: 40px;
-  font-size: 14px;
-  padding: 15px 15px;
+/* Efecto al seleccionar un campo */
+.reservation-form input:focus,
+.reservation-form select:focus {
+  background-color: #fff;
+  border: 1px solid #f35525; /* Borde naranja */
+  box-shadow: none;
 }
 
-.contact-content #contact-form button {
+/* Botón de envío */
+.reservation-form button {
   background-color: #1e1e1e;
-  height: 44px;
-  border-radius: 22px;
+  height: 46px;
+  border-radius: 23px;
   padding: 0px 20px;
   color: #fff;
   border: none;
   font-size: 15px;
   font-weight: 500;
-  transition: all .5s;
+  transition: all .3s;
+  width: 100%;
+  margin-top: 10px;
 }
 
-.contact-content #contact-form button:hover {
-  background-color: #f35525;
+.reservation-form button:hover {
+  background-color: #f35525; /* Cambia a naranja al pasar el mouse */
 }
 
 
-/* 
----------------------------------------------
+/* ---------------------------------------------
 Footer Style
 --------------------------------------------- 
 */
@@ -1375,332 +1172,7 @@ footer p a:hover {
 }
 
 
-/* 
----------------------------------------------
-Page Header Style
---------------------------------------------- 
-*/
-
-.page-heading {
-  background-image: url(../images/page-heading-bg.jpg);
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 110px 0px;
-  text-align: center;
-}
-
-.page-heading span {
-  background-color: #fff;
-  color: #1e1e1e;
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  padding: 10px 25px;
-  display: inline-block;
-  margin-bottom: 30px;
-}
-
-.page-heading span a {
-  color: #1e1e1e;
-}
-
-.page-heading h3 {
-  font-size: 48px;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-
-/* 
----------------------------------------------
-Properties Style
---------------------------------------------- 
-*/
-
-.properties ul.properties-filter {
-  list-style: none;
-  text-align: center;
-  margin-bottom: 70px;
-}
-
-.properties ul.properties-filter li {
-  display: inline-block;
-  margin: 5px 8px;
-}
-
-.properties ul.properties-filter li a {
-  display: inline-block;
-  text-align: center;
-  font-size: 15px;
-  text-transform: capitalize;
-  font-weight: 500;
-  color: #fff;
-  background-color: #1e1e1e;
-  padding: 12px 25px;
-  border-radius: 5px;
-  transition: all .3s;
-}
-
-.properties ul.properties-filter li a.is_active {
-  background-color: #f35525;
-  color: #fff;
-}
-
-.properties ul.properties-filter li a.is_active:hover {
-  color: #fff;
-}
-
-.properties ul.properties-filter li a:hover {
-  color: #f35525;
-}
-
-.properties ul.pagination {
-  margin-top: 50px;
-  text-align: center;
-  width: 100%;
-  display: inline-block;
-}
-
-.properties ul.pagination li {
-  display: inline-block;
-  margin: 0px 5px;
-}
-
-.properties ul.pagination li a {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  background-color: #1e1e1e;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 50%;
-  transition: all .3s;
-}
-
-.properties ul.pagination li a:hover,
-.properties ul.pagination li a.is_active {
-  background-color: #f35525;
-  color: #fff;
-}
-
-
-/* 
----------------------------------------------
-Single Page Style
---------------------------------------------- 
-*/
-
-.single-property .main-image img {
-  float: none;
-}
-
-.single-property .main-content h4 {
-  font-size: 25px;
-  margin-top: 25px;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #eee;
-}
-
-.single-property .main-content span.category {
-  background-color: #fbd9cf;
-  font-weight: 500;
-  border-radius: 5px;
-  font-size: 14px;
-  color: #1e1e1e;
-  padding: 5px 12px;
-  display: inline-block;
-  margin-top: 40px;
-}
-
-.single-property .accordion {
-  margin-top: 60px;
-  margin-left: 0px;
-  margin-right: 0px;
-  --bs-accordion-border-radius: 10px;
-  --bs-accordion-inner-border-radius: 10px;
-  --bs-accordion-bg: #fafafa;
-  --bs-accordion-border-color: none;
-  border: none !important;
-}
-
-.single-property .accordion-header {
-  border-bottom: 1px solid #eaeaea;
-}
-
-.single-property .accordion-button {
-  box-shadow: none;
-  font-size: 17px;
-  font-weight: 500;
-  color: #1e1e1e;
-}
-
-.single-property .accordion-button:not(.collapsed) {
-  color: #f35525;
-  background-color: #fafafa;
-  outline: none;
-}
-
-.single-property .accordion-button::after {
-  display: none;
-}
-
-.single-property #headingThree {
-  border-bottom: none;
-}
-
-.single-property .accordion-item:last-of-type .accordion-collapse {
-  border-top: 1px solid #eaeaea;
-}
-
-.single-property .info-table {
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
-  padding: 35px 30px;
-  margin-left: 60px;
-}
-
-.single-property .info-table ul li {
-  display: block;
-  margin-bottom: 35px;
-  padding-bottom: 35px;
-  border-bottom: 1px solid #eee;
-}
-
-.single-property .info-table ul li:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-.single-property .info-table ul li img {
-  float: left;
-  margin-right: 25px;
-}
-
-.single-property .info-table ul li h4 {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.single-property .info-table ul li h4 span {
-  font-size: 15px;
-  color: #aaa;
-  font-weight: 400;
-}
-
-
-/* 
----------------------------------------------
-Contact Page Style
---------------------------------------------- 
-*/
-
-.contact-page #map {
-  margin-top: 100px;
-}
-
-.contact-page .section-heading {
-  margin-bottom: 40px;
-  margin-right: 280px;
-}
-
-.contact-page p {
-  margin-bottom: 50px;
-}
-
-.contact-page .item {
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
-  padding: 35px 30px;
-  background-color: #fff;
-  display: inline-block;
-  min-width: 360px;
-}
-
-.contact-page .phone {
-  margin-bottom: 30px;
-}
-
-.contact-page .item img {
-  float: left;
-  margin-right: 25px;
-  vertical-align: middle;
-}
-
-.contact-page .item h6 {
-  font-size: 20px;
-  font-weight: 600;
-  vertical-align: middle;
-}
-
-.contact-page .item h6 span {
-  font-size: 15px;
-  color: #aaaaaa;
-  font-weight: 400;
-}
-
-.contact-page #contact-form {
-  margin-left: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
-  padding: 35px 30px;
-  background-color: #fff;
-}
-
-.contact-page #contact-form label {
-  font-size: 15px;
-  color: #3a3a3a;
-  margin-bottom: 15px;
-}
-
-.contact-page #contact-form input {
-  width: 100%;
-  height: 44px;
-  border-radius: 22px;
-  background-color: #f6f6f6;
-  border: none;
-  margin-bottom: 30px;
-  font-size: 14px;
-  padding: 0px 15px;
-}
-
-.contact-page #contact-form textarea {
-  width: 100%;
-  height: 150px;
-  max-height: 180px;
-  border-radius: 22px;
-  background-color: #f6f6f6;
-  border: none;
-  margin-bottom: 40px;
-  font-size: 14px;
-  padding: 15px 15px;
-}
-
-.contact-page #contact-form button {
-  background-color: #1e1e1e;
-  height: 44px;
-  border-radius: 22px;
-  padding: 0px 20px;
-  color: #fff;
-  border: none;
-  font-size: 15px;
-  font-weight: 500;
-  transition: all .5s;
-}
-
-.contact-page #contact-form button:hover {
-  background-color: #f35525;
-}
-
-
-/* 
----------------------------------------------
+/* ---------------------------------------------
 Responsive Style
 --------------------------------------------- 
 */
@@ -1712,15 +1184,6 @@ body {
 @media (max-width: 767px) {
   .header-area .main-nav .logo h1 {
     line-height: 80px !important;
-  }
-  .best-deal .tabs-content .nav-link {
-    font-size: 14px;
-    padding: 0px 15px;
-    height: 44px;
-    line-height: 44px;
-  }
-  .best-deal .tabs-content ul.nav-tabs li {
-    margin: 0px 5px;
   }
   .properties ul.properties-filter li a {
     font-size: 14px;
@@ -1766,25 +1229,6 @@ body {
   .featured .info-table {
     margin-top: 45px;
   }
-  .fun-facts .counter {
-    margin-bottom: 45px;
-  }
-  .best-deal .section-heading {
-    text-align: center;
-  }
-  .best-deal .tabs-content ul.nav-tabs {
-    margin-top: 0px;
-    justify-content: center;
-  }
-  .best-deal .info-table {
-    margin-bottom: 45px;
-  }
-  .best-deal .tab-content img {
-    padding: 0px;
-  }
-  .best-deal .tabs-content h4 {
-    margin-top: 45px;
-  }
   .properties .item h6 {
     text-align: center;
     margin-bottom: 15px;
@@ -1804,35 +1248,16 @@ body {
     margin-left: 0px;
     margin-bottom: 45px;
   }
-  .contact-content #contact-form {
-    margin-left: 0px;
-  }
-  .single-property .info-table {
-    margin-left: 0px;
-    margin-top: 45px;
-  }
-  .contact-page .section-heading {
-    margin-right: 0px !important;
-  }
-  .contact-page #contact-form {
-    margin-left: 0px;
-    margin-top: 60px;
-  }
-  .best-deal .info-table ul li span {
-    float: right !important;
-    width: auto !important;
-  }
 }
 
 @media (max-width: 1200px) {
-  .best-deal .info-table ul li span {
-    float: none;
-    width: 100%;
-  }
-  .contact-page .section-heading {
-    margin-right: 100px;
-  }
+  /* Media query vacía pero se mantiene por estructura */
 }
+
+/* ---------------------------------------------
+Custom Overrides (Ajustes Específicos)
+--------------------------------------------- 
+*/
 
 /* Ajusta el ancho general del contenido */
 .container {
@@ -1891,124 +1316,20 @@ body {
   margin-right: 10px;
 }
 
-/* Asegura que el item no herede estilos de botón */
+/* Estilos especiales para el botón de WhatsApp en el menú */
 .nav li.whatsapp-contact a {
   display: flex;
   align-items: center;
   gap: 6px;
   text-decoration: none;
-  color: #000; /* texto negro */
-  background: none !important; /* quita el fondo negro */
-  padding: 0 !important;       /* quita el padding del botón */
-  border-radius: 0 !important; /* elimina borde redondeado */
+  color: #000; 
+  background: none !important; 
+  padding: 0 !important;       
+  border-radius: 0 !important; 
   font-weight: 600;
 }
 
 .nav li.whatsapp-contact img {
   width: 22px;
   height: 22px;
-}
-
-
-
-/* =========================================
-   ESTILOS SECCIÓN RESERVAS (NUEVO)
-   ========================================= */
-
-#reservas {
-  padding-top: 80px;
-  padding-bottom: 60px;
-  background-color: #fafafa; /* Un fondo gris muy suave para diferenciarlo */
-}
-
-.reservation-form {
-  background-color: #fff;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.05);
-}
-
-.reservation-form label {
-  color: #ee626b; /* Color naranja/rosa de tu marca */
-  font-weight: 600;
-  margin-bottom: 10px;
-  display: block;
-  font-size: 15px;
-}
-
-.reservation-form input,
-.reservation-form select {
-  width: 100%;
-  height: 46px;
-  border-radius: 23px;
-  border: 1px solid #eee;
-  padding: 0px 20px;
-  margin-bottom: 25px;
-  outline: none;
-  font-size: 14px;
-  color: #4a4a4a;
-  background-color: #f9f9f9;
-  transition: all 0.3s;
-}
-
-.reservation-form input:focus,
-.reservation-form select:focus {
-  border-color: #ee626b;
-  background-color: #fff;
-}
-
-.reservation-form button {
-  background-color: #ee626b;
-  border: none;
-  color: #fff;
-  padding: 12px 30px;
-  border-radius: 25px;
-  font-weight: 500;
-  font-size: 15px;
-  transition: all .3s;
-  width: 100%;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.reservation-form button:hover {
-  background-color: #d1545c; /* Un poco más oscuro al pasar el mouse */
-}
-
-/* =========================================
-   ESTILOS BOTONES DE CONSULTA
-   ========================================= */
-
-/* Hace que el enlace ocupe todo el espacio y quite subrayados */
-.consultation-link {
-  display: block;
-  text-decoration: none !important;
-  color: inherit !important;
-}
-
-/* Estilo base de la tarjeta (item) */
-.consultation-link .item {
-  background-color: #fff; /* Fondo blanco */
-  padding: 30px;
-  border-radius: 20px;
-  transition: all 0.3s ease; /* Suaviza la animación */
-  cursor: pointer;
-  border: 1px solid transparent; /* Borde invisible por defecto */
-}
-
-/* Efecto al pasar el mouse por encima */
-.consultation-link:hover .item {
-  transform: translateY(-5px); /* Se eleva un poco */
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  border-color: #ee626b; /* Borde color naranja/rosa marca */
-}
-
-/* Ajuste de imágenes para que se vean bien */
-.consultation-link .item img {
-  margin-bottom: 15px;
-  transition: transform 0.3s;
-}
-
-.consultation-link:hover .item img {
-  transform: scale(1.1); /* La imagen crece un poquito */
 }

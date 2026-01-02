@@ -17,7 +17,7 @@
 	  } else {
 		$("header").removeClass("background-header");
 	  }
-	})
+	});
 
 	$('.owl-banner').owlCarousel({
 	  center: true,
@@ -45,7 +45,7 @@
 		else if (width < 767 && $(window).width() > 767) {
 			location.reload();
 		}
-	})
+	});
 
 	const elem = document.querySelector('.properties-box');
 	const filtersElem = document.querySelector('.properties-filter');
@@ -78,7 +78,7 @@
 		});
 	}
 
-    // Scroll suave unificado y manejo de reservas
+    // --- INICIO DE LÓGICA DE RESERVAS Y SCROLL ---
     $(document).ready(function() {
         // Scroll suave para todos los enlaces internos
         $("a[href^='#']").on("click", function(e) {
@@ -105,21 +105,37 @@
             reservationForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
+                // 1. Obtener valores
+                const nombre = document.getElementById('res-name').value; // NUEVO
                 const fecha = document.getElementById('res-date').value;
                 const hora = document.getElementById('res-time').value;
-                const destino = document.getElementById('res-destin').value;
+                const pasajeros = document.getElementById('res-passengers').value; 
+                const lugarRetiro = document.getElementById('res-pickup').value; 
+                const destinoSeleccionado = document.getElementById('res-destin').value;
+                const lugarDestinoExacto = document.getElementById('res-dropoff').value;
+
                 const nroTelefono = "5493764618983"; 
 
-                const mensaje = `Hola Taxis Iguazú! Quisiera realizar una reserva:%0A` +
-                                `- *Fecha:* ${fecha}%0A` +
-                                `- *Hora:* ${hora}%0A` +
-                                `- *Destino:* ${destino}%0A` +
-                                `Por favor, confírmenme el chofer asignado y métodos de pago.`;
+                // 2. Armar mensaje
+                let mensaje = "Hola Taxis Iguazú! Soy " + encodeURIComponent(nombre) + ". Quisiera realizar una reserva:%0A" + // NUEVO
+                              "- *Fecha:* " + encodeURIComponent(fecha) + "%0A" +
+                              "- *Hora:* " + encodeURIComponent(hora) + "%0A" +
+                              "- *Pasajeros:* " + encodeURIComponent(pasajeros) + "%0A" + 
+                              "- *Origen:* " + encodeURIComponent(lugarRetiro) + "%0A" +
+                              "- *Destino:* " + encodeURIComponent(destinoSeleccionado) + "%0A";
 
+                if (lugarDestinoExacto && lugarDestinoExacto.trim() !== "") {
+                    mensaje += "- *Detalle Destino:* " + encodeURIComponent(lugarDestinoExacto) + "%0A";
+                }
+
+                mensaje += "Aguardo confirmación.";
+
+                // 3. Enviar
                 window.open(`https://api.whatsapp.com/send?phone=${nroTelefono}&text=${mensaje}`, '_blank');
             });
         }
-    });
+    }); 
+    // --- FIN DE LÓGICA DE RESERVAS ---
 
 	// Page loading animation final
 	$(window).on('load', function() {
