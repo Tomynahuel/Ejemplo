@@ -103,38 +103,3 @@
       $this.countTo(options);
     }
   });
-  
-
-
-  // ... (mantener el código que ya existe arriba) ...
-
-// Función para el manejo del formulario de Reservas vía WhatsApp
-function inicializarReservas() {
-    const reservationForm = document.getElementById('reservation-form');
-    if (reservationForm) {
-        reservationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const fecha = document.getElementById('res-date').value;
-            const hora = document.getElementById('res-time').value;
-            const destino = document.getElementById('res-destin').value;
-            const nroTelefono = "5493764618983"; 
-
-            const mensaje = `Hola Taxis Iguazú! Quisiera realizar una reserva:%0A` +
-                            `- *Fecha:* ${fecha}%0A` +
-                            `- *Hora:* ${hora}%0A` +
-                            `- *Destino:* ${destino}%0A` +
-                            `Por favor, confírmenme el chofer asignado y métodos de pago.`;
-
-            window.open(`https://api.whatsapp.com/send?phone=${nroTelefono}&text=${mensaje}`, '_blank');
-        });
-    }
-}
-
-// Ejecutar funciones cuando el DOM esté listo
-$(document).ready(function() {
-    inicializarReservas();
-    
-    // El scroll suave ya está implementado en tu custom.js original 
-    // en la sección "Scroll suave unificado", por lo que no hace falta duplicarlo.
-});
